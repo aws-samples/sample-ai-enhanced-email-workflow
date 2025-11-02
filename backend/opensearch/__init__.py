@@ -1,0 +1,1 @@
+# OpenSearch infrastructure for email AI application

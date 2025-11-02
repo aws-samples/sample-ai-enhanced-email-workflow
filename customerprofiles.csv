@@ -1,0 +1,3 @@
+AccountNumber,FirstName,LastName,CreditScore,SpendingProfile,OverduePayment,ShouldCall,DispositionCode,PhoneNumber,EmailAddress,AdditionalInformation,PartyType,BirthDate,Gender,Address.Address,Address.City,Address.Country,Address.PostalCode,ServiceLevel,SubscriptExpirationDate,LoanApproved,MobilePhoneNumber,HomePhoneNumber,BusinessPhoneNumber
+9715398723,Efua,Owusu,835,Premium travel and entertainment,Yes,Yes,NA,+12135550147,Efua_Owusu@example.com,Contract A,INDIVIDUAL,5/17/1970,FEMALE,74 Any Street,Nowhere,US,31908,Gold,11/23/2025,Yes,,,
+1273421047,Mateo,Jackson,750,Emotionally driven buying decisions,No,Yes,NA,+12135550115,Mateo_Jackson@example.org,Contract B,INDIVIDUAL,2/23/2001,MALE,90 Main Street,Anytown,US,50912,Premium,8/12/2025,Yes,,,

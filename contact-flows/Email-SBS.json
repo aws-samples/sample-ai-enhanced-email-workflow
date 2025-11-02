@@ -1,0 +1,620 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "b7f2b4fb-989b-4136-947b-4d23cf50c0fb",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": -13.6,
+      "y": 23.2
+    },
+    "ActionMetadata": {
+      "cb1b8230-cfde-4438-8504-6091c7c8fe4b": {
+        "position": {
+          "x": 1476.8,
+          "y": 183.2
+        }
+      },
+      "b7f2b4fb-989b-4136-947b-4d23cf50c0fb": {
+        "position": {
+          "x": 19.2,
+          "y": 265.6
+        }
+      },
+      "11b36741-cc58-4066-8961-2bb5ebbe0cf8": {
+        "position": {
+          "x": 651.2,
+          "y": 186.4
+        },
+        "dynamicParams": []
+      },
+      "a2ac0c0e-e81e-451b-9ba2-1fec6d69acb7": {
+        "position": {
+          "x": 956.8,
+          "y": 139.2
+        },
+        "conditions": [],
+        "conditionMetadata": [
+          {
+            "id": "12b95696-adc3-4e5b-b883-47bd9e53ad10",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "Apply for a credit card"
+          },
+          {
+            "id": "a43f1a84-3707-4f83-900d-7ab7010be949",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "Bronze"
+          },
+          {
+            "id": "18270a03-5ba6-445c-a3d8-63524b556045",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "Silver"
+          },
+          {
+            "id": "413d2ad5-b64d-40fc-91dd-4c1f5a76352f",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "Gold"
+          },
+          {
+            "id": "537bca1d-abd5-44c9-8f29-f3b6f779ef93",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "Platinum"
+          },
+          {
+            "id": "39c7f260-c9bb-4dfb-828a-86cd5f19154a",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "Apply for a loan"
+          }
+        ]
+      },
+      "7addbbf8-216e-49a3-8b53-5d839005c273": {
+        "position": {
+          "x": 1231.2,
+          "y": 172.8
+        },
+        "parameters": {
+          "ViewResource": {
+            "Id": {
+              "displayName": "Confirmation"
+            }
+          },
+          "InvocationTimeLimitSeconds": {
+            "unit": 1
+          },
+          "ViewData": {
+            "AttributeBar": {
+              "useJson": true
+            },
+            "Next": {
+              "useJson": true
+            }
+          }
+        }
+      },
+      "a4bc0a55-47ee-42a4-baa7-82e900e8ae46": {
+        "position": {
+          "x": 346.4,
+          "y": 150.4
+        },
+        "parameters": {
+          "ViewResource": {
+            "Id": {
+              "displayName": "Cards"
+            }
+          },
+          "InvocationTimeLimitSeconds": {
+            "unit": 60
+          },
+          "ViewData": {
+            "AttributeBar": {
+              "useJson": true
+            },
+            "Back": {
+              "useJson": true
+            },
+            "Cards": {
+              "useJson": true
+            },
+            "NoMatchFound": {
+              "useJson": true
+            }
+          }
+        }
+      }
+    },
+    "Annotations": [
+      {
+        "type": "default",
+        "id": "ebd945f7-44d2-461b-a6d2-ead1353999e1",
+        "content": "Update name and queue to use attributes instead of hard coded values",
+        "actionId": "a4bc0a55-47ee-42a4-baa7-82e900e8ae46",
+        "isFolded": true,
+        "position": {
+          "x": 445.5,
+          "y": 572
+        },
+        "size": {
+          "height": 295,
+          "width": 300
+        }
+      }
+    ],
+    "name": "Email-SBS",
+    "description": "",
+    "type": "contactFlow",
+    "status": "PUBLISHED",
+    "hash": {}
+  },
+  "Actions": [
+    {
+      "Parameters": {},
+      "Identifier": "cb1b8230-cfde-4438-8504-6091c7c8fe4b",
+      "Type": "DisconnectParticipant",
+      "Transitions": {}
+    },
+    {
+      "Parameters": {
+        "FlowLoggingBehavior": "Enabled"
+      },
+      "Identifier": "b7f2b4fb-989b-4136-947b-4d23cf50c0fb",
+      "Type": "UpdateFlowLoggingBehavior",
+      "Transitions": {
+        "NextAction": "a4bc0a55-47ee-42a4-baa7-82e900e8ae46"
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "actionName": "$.Views.ViewResultData.actionName"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "11b36741-cc58-4066-8961-2bb5ebbe0cf8",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "a2ac0c0e-e81e-451b-9ba2-1fec6d69acb7",
+        "Errors": [
+          {
+            "NextAction": "cb1b8230-cfde-4438-8504-6091c7c8fe4b",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ComparisonValue": "$.Attributes.actionName"
+      },
+      "Identifier": "a2ac0c0e-e81e-451b-9ba2-1fec6d69acb7",
+      "Type": "Compare",
+      "Transitions": {
+        "NextAction": "a4bc0a55-47ee-42a4-baa7-82e900e8ae46",
+        "Conditions": [
+          {
+            "NextAction": "7addbbf8-216e-49a3-8b53-5d839005c273",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "Apply for a credit card"
+              ]
+            }
+          },
+          {
+            "NextAction": "7addbbf8-216e-49a3-8b53-5d839005c273",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "Bronze"
+              ]
+            }
+          },
+          {
+            "NextAction": "7addbbf8-216e-49a3-8b53-5d839005c273",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "Silver"
+              ]
+            }
+          },
+          {
+            "NextAction": "7addbbf8-216e-49a3-8b53-5d839005c273",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "Gold"
+              ]
+            }
+          },
+          {
+            "NextAction": "7addbbf8-216e-49a3-8b53-5d839005c273",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "Platinum"
+              ]
+            }
+          },
+          {
+            "NextAction": "7addbbf8-216e-49a3-8b53-5d839005c273",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "Apply for a loan"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "a4bc0a55-47ee-42a4-baa7-82e900e8ae46",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ViewResource": {
+          "Id": "arn:aws:connect:eu-west-2:aws:view/confirmation:1"
+        },
+        "InvocationTimeLimitSeconds": "300",
+        "ViewData": {
+          "Heading": "The application is submitted successfully.",
+          "AttributeBar": [
+            {
+              "Label": "Full Name",
+              "Value": "$.Attributes.CustomerName"
+            },
+            {
+              "Label": "Queue",
+              "Value": "$.Attributes.QueueName"
+            },
+            {
+              "Label": "Phone Number",
+              "Value": "$.Attributes.PhoneNumber",
+              "Copyable": true
+            },
+            {
+              "Label": "Email",
+              "Value": "$.Attributes.Email",
+              "Copyable": true
+            },
+            {
+              "Label": "Credit Score",
+              "Value": "$.Attributes.CreditScore",
+              "Copyable": true
+            },
+            {
+              "Label": "Spending Profile",
+              "Value": "$.Attributes.SpendingProfile",
+              "Copyable": true
+            },
+            {
+              "Label": "Service Level",
+              "Value": "$.Attributes.ServiceLevel",
+              "Copyable": true
+            },
+            {
+              "Label": "Confidence Score",
+              "Value": "$.Attributes.confidenceScore",
+              "Copyable": true
+            }
+          ],
+          "Next": {
+            "Label": "Close this workflow"
+          },
+          "SubHeading": "The customer will be informed once the process completes"
+        }
+      },
+      "Identifier": "7addbbf8-216e-49a3-8b53-5d839005c273",
+      "Type": "ShowView",
+      "Transitions": {
+        "NextAction": "cb1b8230-cfde-4438-8504-6091c7c8fe4b",
+        "Conditions": [
+          {
+            "NextAction": "a4bc0a55-47ee-42a4-baa7-82e900e8ae46",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "Next"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "cb1b8230-cfde-4438-8504-6091c7c8fe4b",
+            "ErrorType": "NoMatchingCondition"
+          },
+          {
+            "NextAction": "cb1b8230-cfde-4438-8504-6091c7c8fe4b",
+            "ErrorType": "NoMatchingError"
+          },
+          {
+            "NextAction": "cb1b8230-cfde-4438-8504-6091c7c8fe4b",
+            "ErrorType": "TimeLimitExceeded"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ViewResource": {
+          "Id": "arn:aws:connect:eu-west-2:aws:view/cards:1"
+        },
+        "InvocationTimeLimitSeconds": "54000",
+        "ViewData": {
+          "AttributeBar": [
+            {
+              "Label": "Full Name",
+              "Value": "$.Attributes.CustomerName"
+            },
+            {
+              "Label": "Queue",
+              "Value": "$.Attributes.QueueName"
+            },
+            {
+              "Label": "Phone Number",
+              "Value": "$.Attributes.PhoneNumber",
+              "Copyable": true
+            },
+            {
+              "Label": "Email",
+              "Value": "$.Attributes.Email",
+              "Copyable": true
+            },
+            {
+              "Label": "Credit Score",
+              "Value": "$.Attributes.CreditScore",
+              "Copyable": true
+            },
+            {
+              "Label": "Spending Profile",
+              "Value": "$.Attributes.SpendingProfile",
+              "Copyable": true
+            },
+            {
+              "Label": "Service Level",
+              "Value": "$.Attributes.ServiceLevel",
+              "Copyable": true
+            },
+            {
+              "Label": "Confidence Score",
+              "Value": "$.Attributes.confidenceScore",
+              "Copyable": true
+            }
+          ],
+          "Back": {
+            "Label": "Back"
+          },
+          "Cards": [
+            {
+              "Summary": {
+                "Id": "confidence_analysis",
+                "Icon": "Microscope",
+                "Heading": "Confidence Score Explanation",
+                "Description": "Required Human Review"
+              },
+              "Detail": {
+                "Heading": "Confidence Score Analysis Details",
+                "Description": "Breakdown of factors affecting the confidence score: $.Attributes.confidenceScore",
+                "Sections": {
+                  "TemplateString": "<TextContent>$.Attributes.confidenceExplanation4SBS</TextContent>"
+                },
+                "Actions": [
+                  "Done"
+                ]
+              }
+            },
+            {
+              "Summary": {
+                "Id": "credit_card",
+                "Icon": "Credit Card Front",
+                "Heading": "Credit Card",
+                "Description": "Apply for a credit card"
+              },
+              "Detail": {
+                "Heading": "Guide customers through the credit card application process by following the steps",
+                "Sections": {
+                  "TemplateString": "<TextContent>Steps for credit card application:<ol><li>Gather the required information, such as customer personal details, income, and employment status.</li><li>Assess customer spending habits and credit score to determine the right credit card for their needs. Consider factors like rewards, annual fees, and APR</li><li>Choose the credit card the customer wants to apply for and submit the application after their confirmation.</li><li>Inform the customer it takes 5-7 working days to get a notification about their application approval status and next steps. </li></ol></TextContent>"
+                },
+                "Actions": [
+                  "Apply for a credit card",
+                  "Something else"
+                ]
+              }
+            },
+            {
+              "Summary": {
+                "Id": "GenAI",
+                "Icon": "Settings",
+                "Heading": "AI Powered Suggested Response",
+                "Description": "Suggested Response"
+              },
+              "Detail": {
+                "Heading": "Please Review Suggested Response Prior to Sending",
+                "Sections": {
+                  "TemplateString": "<TextContent>$.Attributes.suggestedResponse4SBS</TextContent>"
+                },
+                "Actions": [
+                  "Done"
+                ]
+              }
+            },
+            {
+              "Summary": {
+                "Heading": "Service Level",
+                "Description": "Change the service level",
+                "Id": "ServiceLevel_1",
+                "Icon": "Directory"
+              },
+              "Detail": {
+                "Sections": [
+                  {
+                    "TemplateString": "<Alert><table><tr><th style='font-weight:700;color:#077398'>Current:</th><th style='color:red;white-space: nowrap;'>$.Attributes.ServiceLevel</th></tr></table></Alert><TextContent>Service levels:<ol><li>Bronze offering basic checking and online banking </li><li>Silver adding preferential rates and enhanced support</li><li>Gold providing dedicated managers and premium benefits</li><li>Platinum providing exclusive private banking with concierge services and comprehensive wealth management.</li></ol></TextContent>"
+                  }
+                ],
+                "Actions": [
+                  "Bronze",
+                  "Silver",
+                  "Gold",
+                  "Platinum"
+                ]
+              }
+            },
+            {
+              "Summary": {
+                "Id": "payment_transactions",
+                "Icon": "Dollar Sign",
+                "Heading": "Payments & Transactions",
+                "Description": "Transaction History and Payment Processing"
+              },
+              "Detail": {
+                "Heading": "Payment and Transaction Management",
+                "Description": "Guide for processing payments and reviewing transactions",
+                "Sections": {
+                  "TemplateString": "<TextContent><ul><li>Process one-time payment over phone</li><li>Set up automatic payment arrangements</li><li>Review recent transaction history</li><li>Explain payment posting timelines</li><li>Assist with online banking setup</li><li>Calculate interest charges if applicable</li></ul></TextContent>"
+                },
+                "Actions": [
+                  "Process Payment",
+                  "View Transaction History"
+                ]
+              }
+            },
+            {
+              "Summary": {
+                "Id": "loan_for_car",
+                "Icon": "Car Side View",
+                "Heading": "Loan",
+                "Description": "Loan Application"
+              },
+              "Detail": {
+                "Heading": "gather the basic information from the customer",
+                "Sections": {
+                  "TemplateString": "<TextContent>Steps:<ol><li>Customer's income</li><li>Any existing debts</li><li>Credit History</li><li>Intended down payment amount</li><li>Price about the real estate interested in purchasing.</li></ol></TextContent>"
+                },
+                "Actions": [
+                  "Apply for a loan",
+                  "Something else"
+                ]
+              }
+            },
+            {
+              "Summary": {
+                "Id": "security_verification",
+                "Icon": "Key",
+                "Heading": "Security Verification",
+                "Description": "Customer Authentication Process"
+              },
+              "Detail": {
+                "Heading": "Security Verification Procedures",
+                "Description": "Steps to verify customer identity and secure account",
+                "Sections": {
+                  "TemplateString": "<TextContent><ol><li>Verify customer with security questions</li><li>Confirm recent transaction details</li><li>Validate billing address information</li><li>Check for fraud alerts on account</li><li>Document verification completion in system</li><li>Escalate if verification fails</li></ol></TextContent>"
+                },
+                "Actions": [
+                  "Security Check Passed",
+                  "Escalate to Fraud Team"
+                ]
+              }
+            },
+            {
+              "Summary": {
+                "Id": "dispute_resolution",
+                "Icon": "Documents",
+                "Heading": "Dispute Resolution",
+                "Description": "Transaction Dispute Process"
+              },
+              "Detail": {
+                "Heading": "Credit Card Dispute Processing",
+                "Description": "Steps for handling transaction disputes and chargebacks",
+                "Sections": {
+                  "TemplateString": "<TextContent><ol><li>Identify disputed transaction details</li><li>Determine dispute type (fraud/billing error/quality)</li><li>Complete dispute form in system</li><li>Explain investigation timeline (up to 90 days)</li><li>Issue provisional credit if applicable</li><li>Provide dispute reference number</li></ol></TextContent>"
+                },
+                "Actions": [
+                  "File Dispute",
+                  "Check Dispute Status"
+                ]
+              }
+            }
+          ],
+          "Heading": "$.Attributes.intent",
+          "NoMatchFound": {
+            "Label": "Can't find match?"
+          }
+        }
+      },
+      "Identifier": "a4bc0a55-47ee-42a4-baa7-82e900e8ae46",
+      "Type": "ShowView",
+      "Transitions": {
+        "NextAction": "b7f2b4fb-989b-4136-947b-4d23cf50c0fb",
+        "Conditions": [
+          {
+            "NextAction": "b7f2b4fb-989b-4136-947b-4d23cf50c0fb",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "Back"
+              ]
+            }
+          },
+          {
+            "NextAction": "11b36741-cc58-4066-8961-2bb5ebbe0cf8",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "ActionSelected"
+              ]
+            }
+          },
+          {
+            "NextAction": "b7f2b4fb-989b-4136-947b-4d23cf50c0fb",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "NoMatchFound"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "b7f2b4fb-989b-4136-947b-4d23cf50c0fb",
+            "ErrorType": "NoMatchingCondition"
+          },
+          {
+            "NextAction": "b7f2b4fb-989b-4136-947b-4d23cf50c0fb",
+            "ErrorType": "NoMatchingError"
+          },
+          {
+            "NextAction": "b7f2b4fb-989b-4136-947b-4d23cf50c0fb",
+            "ErrorType": "TimeLimitExceeded"
+          }
+        ]
+      }
+    }
+  ]
+}
