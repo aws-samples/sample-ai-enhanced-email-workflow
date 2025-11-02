@@ -279,21 +279,7 @@ pip install -r requirements.txt
 - [AWS CDK installed on your local machine](https://docs.aws.amazon.com/cdk/v2/guide/getting-started.html)
 - [Python 3.13 or later](https://www.python.org/downloads/)
 
-#### 2.2. Enable Amazon Bedrock Models
-Enable Amazon Bedrock models "Claude 3.5 Haiku" (and "Claude 3 Haiku" as fallback based on regional availability) and the "Titan Text Embeddings v2" in your AWS account:
-
-1. Navigate to Amazon Bedrock using the AWS Console search bar
-2. In Amazon Bedrock, click the hamburger menu (three stacked lines) on the left side navigation in the Amazon Bedrock Console
-3. Scroll to the bottom of the left side navigation in the Amazon Bedrock Console to "Bedrock configurations"
-4. Click "Model access" under "Bedrock configurations"
-5. Under the Anthropic section, make sure that the "Claude 3.5 Haiku", "Claude 3 Haiku" (fallback), and "Titan Text Embeddings v2" rows show the "Access status" of "✅ Access granted"
-6. If it does not show "✅ Access granted", click the orange button at the top of the page that says "Modify model access" to toggle the table to allow selections of models
-7. Check the box in the "Claude 3.5 Haiku" row, "Claude 3 Haiku" row (fallback), and the "Titan Text Embeddings v2" row
-8. Scroll to the bottom of the page and click "Next"
-9. This will take you to the "Review and submit" page where you should see a status of "Access granted"
-10. Click "Submit" to enable the Amazon Bedrock model for your account
-
-#### 2.3. Amazon Connect Resources
+#### 2.2. Amazon Connect Resources
 Before deployment, ensure you have the following AWS resources enabled  in your Amazon Connect instance:
 
 - [**Email capablities**](https://www.youtube.com/watch?v=MXuJTHR_-zE)
