@@ -467,7 +467,7 @@ Please share details about annual fees and current sign-up bonuses.
 ```
 
 **Expected Result**: Suggested response is sent automatically because there is a knowledge article 
-![Auto Response With Case Reference Number Subject](./solution-diagrams/Autoresponse.png)
+![Auto Response With Case Reference Number Subject](./solution-diagrams/AutoResponse.png)
 
 ## Analytics and Data Insights by Using Amazon CloudWatch Logs Insights
 
